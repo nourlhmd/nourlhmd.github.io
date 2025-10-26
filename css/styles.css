@@ -1,0 +1,449 @@
+:root{
+  /* Harmonized theme: olive, beige, bright sky-blue accents */
+  /* Base neutrals */
+  --bg: #e4dbc3; /* warm beige page background */
+  --card: #bebab2; /* card background (soft warm white) */
+  --muted: #6b6b6b; /* muted text / secondary */
+  --text: #081014; /* near-black text for good contrast */
+
+  /* Olive accents (primary theme) */
+  --accent: #556b2f; /* medium olive */
+  --accent-2: #3f511a; /* dark olive */
+
+  /* Sky blue accents (contrasting vibrant accent) */
+  --sky: #00b3ff; /* bright sky blue */
+  --sky-2: #008fd6; /* deeper sky blue */
+
+  /* Box colors */
+  --box-bg: #60732b; /* medium olive for main boxes */
+  --subbox-bg: #516124; /* light olive-beige for sub boxes */
+  --box-text: #f5efe0; /* light beige text used inside olive boxes */
+
+  --glass: rgba(8,16,20,0.04);
+  --radius:12px;
+  --max-width:1100px;
+
+  /* Fonts */
+  --font-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Section title color */
+  --section-title: var(--accent-2);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+.site-wrapper{min-height:100vh;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{margin:0;font-family:var(--font-body);color:var(--text);}
+.container{line-height:1.6}
+.container{max-width:var(--max-width);margin:0 auto;padding:2rem}
+/* prevent content being hidden behind the fixed nav */
+main{padding-top:92px}
+.container{max-width:var(--max-width);margin:0 auto;padding:2rem}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(11,18,32,0.6), rgba(11,18,32,0.35));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
+.brand{font-weight:700;font-size:1.1rem;color:var(--accent)}
+
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+.nav a{color:inherit;text-decoration:none;padding:0.5rem 0.6rem;border-radius:8px;transition:background .18s, color .18s}
+.nav a:hover{background:var(--glass)}
+.nav a.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041025}
+
+/* Top navigation (fixed, centered at top) */
+.top-nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:70;padding:6px 14px;background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-radius:999px;border:1px solid rgba(15,23,36,0.06);box-shadow:0 6px 20px rgba(15,23,36,0.06)}
+.top-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.6rem;align-items:center}
+.top-nav a{display:inline-flex;align-items:center;padding:.55rem .95rem;border-radius:999px;background:transparent;color:var(--muted);text-decoration:none;font-weight:600;transition:all .18s}
+.top-nav a i{margin-right:.5rem}
+  .top-nav a:hover{background:linear-gradient(90deg, rgba(85,107,47,0.06), rgba(63,81,26,0.04));color:var(--accent);box-shadow:0 6px 18px rgba(0,179,255,0.06)}
+.top-nav a.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;box-shadow:1 6px 18px rgba(63,81,26,0.12)}
+.top-nav .nav-toggle{display:none;margin-left:.6rem}
+
+/* Language visibility: default to French visible, English hidden. JS will set
+   document data-lang to switch and persist user preference. */
+.lang-en{display:none}
+html[data-lang="en"] .lang-en{display:inline}
+html[data-lang="en"] .lang-fr{display:none}
+html[data-lang="fr"] .lang-en{display:none}
+
+/* Language toggle button in the top-nav */
+.lang-switch{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:80;
+  /* removed white background + border to better integrate the control */
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.lang-switch .lang-toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.45rem .75rem;
+  border-radius:999px;
+  border:0;
+  background:transparent; /* actual color comes from html[data-lang] rules */
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  transition:background .18s ease, box-shadow .18s ease, transform .08s ease;
+}
+.lang-switch .lang-toggle i{font-size:0.9rem;opacity:0.95}
+.lang-switch .lang-toggle:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.09)}
+
+/* Move the lang box inside the top bar on very small screens to avoid overlap */
+@media (max-width:720px){
+  .lang-switch{right:12px;top:12px}
+}
+
+/* Color the language button to reflect the active language: olive for FR, blue for EN */
+html[data-lang="fr"] .lang-switch .lang-toggle{
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(63,81,26,0.08);
+}
+html[data-lang="fr"] .lang-switch .lang-toggle:hover{
+  filter:brightness(1.03);
+}
+
+html[data-lang="en"] .lang-switch .lang-toggle{
+  background: linear-gradient(90deg, var(--sky), var(--sky-2));
+  color: #fff;
+  border-color: rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(0,143,214,0.08);
+}
+html[data-lang="en"] .lang-switch .lang-toggle:hover{
+  filter:brightness(1.03);
+}
+
+
+/* mobile toggle */
+.nav-toggle{display:none;background:none;border:0;padding:.4rem;border-radius:8px}
+.nav-toggle .bar{display:block;width:22px;height:2px;background:rgba(11,11,11,0.12);margin:4px 0;border-radius:2px}
+
+.hero{padding:6rem 0 4rem}
+.hero h1{font-size:5.2rem;margin:0 0 .6rem;line-height:1.01;font-family:var(--font-heading);font-weight:700;color:var(--text)}
+.lead{color:var(--muted);margin-top:0}
+.cta{display:inline-block;margin-top:1rem;padding:.6rem 1rem;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;text-decoration:none;font-weight:600}
+.cta:hover{box-shadow:0 10px 30px rgba(0,179,255,0.08);transform:translateY(-2px)}
+
+/* Hero action icons (replace text CTAs) */
+.hero-actions{margin-top:1rem;display:flex;gap:0.8rem;justify-content:center;align-items:center}
+.hero-icon{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;text-decoration:none;font-size:1.2rem;transition:transform .15s ease}
+.hero-icon:hover{transform:translateY(-4px);background:linear-gradient(90deg,var(--sky),var(--sky-2));box-shadow:0 10px 30px rgba(0,179,255,0.08)}
+
+@media (max-width:900px){
+  .hero h1{font-size:3.2rem}
+  .hero-icon{width:48px;height:48px;font-size:1.05rem}
+}
+
+/* Hero photo + responsive layout */
+.hero .container{display:block}
+.hero-meta{display:flex;align-items:center;gap:1.25rem;justify-content:center;flex-direction:column}
+.hero-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;flex:0 0 140px;border:4px solid var(--box-bg);box-shadow:0 8px 20px rgba(15,23,36,0.06)}
+.hero-text{text-align:center}
+
+/* Ensure actions inside the hero text are centered even when hero-text is left-aligned on desktop */
+.hero-text .hero-actions{justify-content:center}
+
+/* LinkedIn link on the hero name */
+.hero-name-link{color:var(--text);text-decoration:none;padding:.05rem .15rem;border-radius:6px;transition:color .18s, transform .12s}
+.hero-name-link:hover{color:var(--accent);transform:translateY(-2px);text-decoration:none}
+
+/* Remove global external-link arrow and dashed underline for the hero name link */
+.hero-name-link{border-bottom: none !important}
+.hero-name-link[target="_blank"]::after{content:"" !important; margin-left:0 !important}
+
+@media (min-width:900px){
+  /* On larger viewports place photo to the right of text and increase sizes */
+  .hero .container{display:flex;align-items:center;gap:2rem;justify-content:space-between}
+  .hero-meta{flex-direction:row;align-items:center}
+  .hero-text{text-align:left;flex:1}
+  .hero-photo{width:540px;height:540px;flex:0 0 540px;border-width:6px}
+  .hero h1{font-size:5.2rem}
+}
+
+@media (max-width:520px){
+  .hero-photo{width:96px;height:96px;flex:0 0 96px}
+  .hero h1{font-size:2.4rem}
+}
+
+.section{min-height:calc(100vh - 92px);padding:5rem 0;display:block}
+.hero{min-height:calc(100vh - 92px);display:flex;align-items:center}
+.section.alt{background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent)}
+
+.timeline .item{padding:.8rem 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.muted{color:var(--muted);font-size:.95rem}
+
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{background:var(--card);padding:1rem;border-radius:var(--radius);box-shadow:none !important}
+.button-outline{display:inline-block;margin-top:.6rem;padding:.4rem .75rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);color:var(--accent-2);text-decoration:none}
+.button-outline:hover{border-color:var(--sky-2);color:var(--sky)}
+
+.skills .skill{margin-bottom:1rem}
+.bar{background:rgba(255, 255, 255, 0.03);height:12px;border-radius:8px;overflow:hidden}
+.bar > div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:var(--pct)}
+
+.contact-form{margin-top:1rem}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem}
+.form-grid input, .contact-form textarea{width:100%;padding:.7rem;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit}
+.form-actions{text-align:right;margin-top:.6rem}
+.button-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041025;padding:.6rem 1rem;border-radius:8px;border:0}
+.button-primary:hover{background:linear-gradient(90deg,var(--accent),var(--sky));color:#041025;box-shadow:0 10px 30px rgba(0,179,255,0.06);transform:translateY(-2px)}
+
+/* Generic box styling and per-type hooks */
+.boxes{display:grid;gap:1rem;margin-top:1rem}
+.boxes.boxes-formation{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.boxes.boxes-formation{display:flex;flex-direction:column;gap:1rem}
+.box-ensimag{padding:1.25rem 1.25rem;border-radius:14px;background:var(--box-bg) !important;border:1px solid rgba(15,23,36,0.04);box-shadow:none !important}
+.box-ensimag h3{font-size:1.5rem;text-align:center}
+.ensimag-years{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;align-items:stretch;margin-top:0.9rem}
+.ensimag-years .box-formation-year{background:var(--subbox-bg) !important;color:var(--text);padding:1rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:none !important;min-width:200px;flex:1 1 220px;text-align:center}
+.ensimag-years .box-formation-year h4{margin:0 0 .45rem;font-size:1rem}
+.ensimag-years .box-formation-year p{margin:0;color:var(--box-text);font-size:.95rem}
+@media (max-width:900px){
+  .ensimag-years .box-formation-year{flex:1 1 45%}
+}
+@media (max-width:520px){
+  .ensimag-years{flex-direction:column}
+  .ensimag-years .box-formation-year{flex:1 1 100%}
+}
+.boxes.boxes-experience{display:flex;flex-direction:column;gap:1rem}
+.stages-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.experiences-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.boxes.boxes-projects{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+/* Ensure ISL (the large Introduction box) always occupies the first full-width row
+  and any other project cards start on the next row. This prevents a single
+  uncommented project from appearing beside ISL or moving ISL out of the first line. */
+.boxes.boxes-projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;align-items:start}
+.box-isl{grid-column:1 / -1}
+/* ensure ISL is in the first grid row explicitly */
+.box-isl{grid-row-start:1}
+.boxes.boxes-projects > .box:not(.box-isl){grid-row-start:2}
+
+/* Unified project card layout */
+.boxes.boxes-projects .box{
+  display:flex;
+  flex-direction:column;
+  gap:0.6rem;
+  align-items:stretch;
+  text-align:left;
+  padding:1.15rem;
+  min-height:170px;
+}
+
+/* Force consistent background for project boxes and remove leftover gradients */
+.boxes.boxes-projects .box-project{background:var(--box-bg) !important;border-left:none !important}
+
+/* Titles and summaries aligned left and use the box text color for contrast */
+.boxes.boxes-projects .box h3{font-family:var(--font-heading);color:var(--box-text);font-size:1.15rem;margin:0 0 .35rem;text-align:left;position:relative}
+.boxes.boxes-projects .box h3::after{content:"";position:absolute;left:0;bottom:-8px;width:42px;height:5px;border-radius:4px;background:linear-gradient(90deg,var(--sky),var(--sky-2));opacity:0.95}
+.boxes.boxes-projects .project-summary{color:var(--box-text);font-weight:600;margin:0 0 .6rem}
+.boxes.boxes-projects .project-tech{margin-top:auto;color:var(--box-text);font-weight:600}
+
+/* If project has a media block, keep it compact and consistent */
+.boxes.boxes-projects .project-media{height:120px;border-radius:8px;margin-bottom:.6rem;background-size:cover;background-position:center}
+
+/* Small screens: keep cards full-width and stacked */
+@media (max-width:720px){
+  .boxes.boxes-projects .box{min-height:unset;padding:.9rem}
+  .boxes.boxes-projects .project-media{height:96px}
+}
+/* Force specific projects to appear on the third visual row (use !important to override other rules and cascade issues) */
+.boxes.boxes-projects > .box-convertisseur{grid-row-start:3 !important}
+.boxes.boxes-projects > .box-database{grid-row-start:3 !important}
+.boxes.boxes-projects > .box-brainfuck{grid-row-start:3 !important}
+.boxes.boxes-skills{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.box{background:var(--box-bg) !important;padding:1rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:none !important}
+.box h3,.box h4{margin:0 0 .5rem;color:var(--box-text);font-family:var(--font-heading);font-weight:700}
+.section h2{font-size:2.4rem;text-align:center;margin-bottom:1.25rem;color:var(--section-title);font-family:var(--font-heading);font-weight:700}
+.box h3,.box h4{text-align:center}
+.box h3{font-size:1.3rem}
+.box p{margin:0 0 .9rem;color:var(--box-text);line-height:1.6}
+
+/* Center all texts in the Formation section (#about) */
+#about .boxes.boxes-formation { /* container */
+  align-items: center;
+}
+#about .boxes.boxes-formation .box,
+#about .boxes.boxes-formation .box-ensimag,
+#about .boxes.boxes-formation .box-formation-year,
+#about .boxes.boxes-formation .ensimag-years {
+  text-align: center;
+}
+#about .boxes.boxes-formation .ensimag-years{
+  justify-items:center; /* center grid cell contents */
+}
+#about .boxes.boxes-formation .box a{display:inline-block;margin:0 auto}
+#about .boxes.boxes-formation .box p{margin-left:auto;margin-right:auto}
+
+.box ul{margin:.6rem 0 0;padding-left:1.1rem}
+.box ul li{margin-bottom:.45rem}
+
+/* per-type accents so you can style them differently */
+.box-formation{border-left:none !important;background:linear-gradient(90deg, rgba(14,165,165,0.03), transparent)}
+.box-stage{
+  border-left:none !important;
+  /* dark-blue gradient for stage boxes to match skills visual weight */
+  background: linear-gradient(89deg, #0999e1 0%, #0073b1 100%) !important;
+  color: var(--box-text); /* light text for contrast */
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.box-experience{border-left:none !important;background:linear-gradient(90deg, rgba(245,158,11,0.03), transparent)} /* amber */
+.box-project{border-left:none !important;background:linear-gradient(90deg, rgba(167,139,250,0.03), transparent)} /* purple */
+.box-project .project-media{height:140px;border-radius:8px;margin-bottom:.75rem;background-color:rgba(15,23,36,0.02);background-size:cover;background-position:center}
+.project-summary{margin:0 0 .6rem;color:var(--box-text);font-weight:700}
+.project-points{margin:0 0 .6rem;padding-left:1.1rem}
+.project-points li{margin-bottom:.35rem}
+.project-tech{margin-top:.6rem;font-weight:700;color:var(--box-text)}
+
+/* ISL large box with 3 small sub-project boxes (unified card style) */
+.box-isl{padding:1rem;border-radius:12px;background:var(--box-bg) !important;border:1px solid rgba(15,23,36,0.04);box-shadow:none !important;position:relative;overflow:hidden}
+.isl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem;margin-top:0.8rem}
+.box-subproject{background:var(--subbox-bg) !important;padding:1rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:none !important;color:var(--text)}
+.box-subproject h4{margin:0 0 .45rem;font-size:1rem}
+.box-subproject p{margin:0;color:var(--box-text);font-size:.95rem}
+
+/* ISL background handling: place a full-cover, low-opacity background behind the ISL content */
+.box-isl .project-media.isl-bg{position:absolute;inset:0;height:100%;width:100%;background-size:cover;background-position:center;opacity:.12;z-index:0;pointer-events:none}
+.box-isl > *{position:relative;z-index:1}
+
+/* ensure nested subprojects keep unified card visuals */
+.isl-grid .box-subproject{background:var(--subbox-bg) !important}
+
+@media (max-width:900px){
+  .isl-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:520px){
+  .isl-grid{grid-template-columns:1fr}
+}
+.projects-row{display:grid;gap:1rem;margin-bottom:1rem}
+.projects-row.cols-1{grid-template-columns:1fr}
+.projects-row.cols-2{grid-template-columns:repeat(2,1fr)}
+.projects-row.cols-3{grid-template-columns:repeat(3,1fr)}
+.projects-row.cols-4{grid-template-columns:repeat(4,1fr)}
+.projects-row.cols-auto{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+/* Ensure the ISL row spans the full width of the parent grid */
+.projects-row.cols-1{grid-column:1 / -1}
+.box-isl{width:100%}
+
+@media (max-width:900px){
+  .projects-row.cols-2{grid-template-columns:repeat(2,1fr)}
+  .projects-row.cols-3{grid-template-columns:repeat(2,1fr)}
+  .projects-row.cols-4{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:520px){
+  .projects-row.cols-2,
+  .projects-row.cols-3,
+  .projects-row.cols-4,
+  .projects-row.cols-auto{grid-template-columns:1fr}
+}
+.box-skill{border-left:none !important;background:linear-gradient(90deg, rgba(0,179,255,0.06), transparent)} /* sky blue */
+
+/* Skill pills */
+.skill-items{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem;justify-content:center}
+.skill-pill{
+  background: var(--accent-2);
+  color: var(--box-text); /* clearer, light text on dark pill */
+  padding:.5rem .8rem;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.12);
+  font-weight:700;
+}
+.skill-section{display:flex;flex-direction:column;align-items:center;text-align:center}
+.skills-grid .skill-section h4{margin-bottom:.6rem}
+.skill-items{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+.skill-pill{background:var(--accent-2);color:var(--box-text);padding:.45rem .7rem;border-radius:999px;border:1px solid rgba(0,0,0,0.12);font-weight:700}
+.skill-pill:hover{box-shadow:0 8px 20px rgba(0,179,255,0.06);border-color:rgba(0,143,214,0.12)}
+.skill-items.small .lang-pill{padding:.35rem .6rem;font-size:.95rem}
+.lang-pill{background:var(--accent-2);color:var(--box-text);padding:.45rem .8rem;border-radius:999px;border:1px solid rgba(0,0,0,0.12);font-weight:700}
+.lang-pill:hover{box-shadow:0 8px 20px rgba(0,179,255,0.06);border-color:rgba(0,143,214,0.12)}
+.skill-items.small .lang-pill{padding:.35rem .6rem;font-size:.95rem}
+.lang-pill{background:var(--accent-2);color:var(--box-text);padding:.35rem .6rem;border-radius:999px;border:1px solid rgba(0,0,0,0.12);font-weight:700}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.skill-section{padding:0}
+
+/* Skill section boxes: subtle sky-blue background for better visual grouping */
+.skills-grid .skill-section{
+  /* darker solid blue gradient for clear, visible blue boxes */
+  background: linear-gradient(180deg, #008fd6 0%, #007ebd 100%);
+  padding: 1rem;
+  border-radius: 12px;
+  color: var(--box-text); /* light text for contrast on dark blue */
+}
+@media (max-width:720px){
+  .skills-grid{grid-template-columns:1fr}
+}
+
+.site-footer{padding:1.25rem 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,0.02)}
+
+/* Contact section styles */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}
+.contact-card{background:var(--card);padding:1.25rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:0 8px 24px rgba(15,23,36,0.04)}
+.contact-info ul{list-style:none;padding:0;margin:0}
+.contact-info li{margin-bottom:.6rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:.6rem}
+.contact-info a{color:var(--accent-2);text-decoration:none}
+.contact-form .form-grid{display:block;margin-top:.6rem}
+.contact-form input,.contact-form textarea{background:transparent;border:1px solid rgba(15,23,36,0.06);padding:.8rem;border-radius:8px;color:var(--text)}
+.contact-form textarea{min-height:140px}
+.contact-form .form-actions{text-align:left;margin-top:.8rem}
+.contact-form .button-primary{padding:.7rem 1.05rem}
+@media (max-width:900px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* External links styling (visible mark for external resources) */
+a[target="_blank"], a[href^="http"]{color:var(--accent-2);text-decoration:none;border-bottom:2px dashed rgba(63,81,26,0.12);padding-bottom:2px}
+a[target="_blank"]::after{content:' ↗';font-size:.9em;margin-left:.25rem;color:var(--accent-2)}
+
+/* Center years / small-muted labels in experience/stage cards */
+.boxes-experience .box-experience .muted,
+.boxes-experience .box-stage .muted{ text-align:center; display:block; font-weight:700; }
+
+/* Contact action round icons */
+.contact-actions{display:flex;gap:1rem;align-items:center;justify-content:center}
+.contact-item{width:56px;height:56px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:1.2rem;box-shadow:0 8px 20px rgba(15,23,36,0.06);transition:transform .15s ease}
+.contact-item:hover{transform:translateY(-4px)}
+.contact-mail{background:#0b0b0b}
+.contact-linkedin{
+  /* use theme sky blues for clearer visibility while keeping white icon color */
+  background: linear-gradient(90deg,var(--sky),var(--sky-2));
+  color: #fff;
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 8px 20px rgba(0,0,0,0.10);
+}
+
+/* Remove external-link arrow for the LinkedIn contact icon specifically */
+.contact-linkedin[target="_blank"]::after{content:"" !important; margin-left:0 !important}
+.contact-cv{background:linear-gradient(90deg,#e9e2cf,#f5f0e6);color:var(--text)}
+
+
+/* Responsive */
+@media (max-width:900px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:720px){
+  .nav ul{display:none}
+  .nav.open ul{display:flex;flex-direction:column;gap:0;padding:1rem 0}
+  .nav-toggle{display:inline-flex;align-items:center}
+  .header-inner{gap:1rem}
+  .projects-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .hero{padding:3.5rem 0}
+  /* responsive: collapse top nav into hamburger on small screens */
+  .top-nav{left:12px;transform:none;right:12px;display:flex;justify-content:space-between;align-items:center;padding:8px}
+  .top-nav ul{display:none}
+  .top-nav .nav-toggle{display:inline-flex}
+  .top-nav.open ul{display:flex;flex-direction:column;gap:.5rem;background:transparent;padding:.75rem;margin-top:8px;border-radius:10px}
+  .top-nav.open{flex-direction:column;align-items:flex-start}
+  .top-nav.open a{padding:.6rem .9rem}
+}
+
+/* small helpers */
+.grid{display:grid}
+.muted{opacity:.85}

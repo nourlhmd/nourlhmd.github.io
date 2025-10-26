@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio — Nom Prénom</title>
+  <!-- Using system fonts: Georgia for headings, Arial for body (no external font loaded) -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Top navigation (fixed, centered at top) -->
+    <nav class="top-nav" id="site-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#home" class="nav-link"><i class="fa-solid fa-house"></i><span class="lang-fr">Accueil</span><span class="lang-en">Home</span></a></li>
+        <li><a href="#about" class="nav-link"><i class="fa-solid fa-graduation-cap"></i><span class="lang-fr">Formation</span><span class="lang-en">Education</span></a></li>
+        <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i><span class="lang-fr">Expérience</span><span class="lang-en">Experience</span></a></li>
+        <li><a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open"></i><span class="lang-fr">Projets</span><span class="lang-en">Projects</span></a></li>
+        <li><a href="#skills" class="nav-link"><i class="fa-solid fa-star"></i><span class="lang-fr">Compétences</span><span class="lang-en">Skills</span></a></li>
+        <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i><span class="lang-fr">Contact</span><span class="lang-en">Contact</span></a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+
+    <!-- Language switch box (separate from the main top-nav) -->
+    <div class="lang-switch" aria-hidden="false">
+      <button id="lang-toggle" class="lang-toggle" aria-label="Changer la langue" title="FR / EN">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        <span class="lang-label">EN</span>
+      </button>
+    </div>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-meta">
+            <div class="hero-text">
+              <h1>
+                <a class="hero-name-link" href="https://www.linkedin.com/in/nour-el-hamidi/" target="_blank" rel="noopener" title="Profil LinkedIn de Nour EL HAMIDI">EL HAMIDI Nour</a>
+              </h1>
+              <p class="lead"><span class="lang-fr">Recherche de projet de fin d'étude de 6 mois à partir de février 2026</span><span class="lang-en">Looking for a 6-month final project starting February 2026</span></p>
+
+            </div>
+            <!-- Replace IMG_5231 2.JPG with a cleaned filename if needed. Image kept accessible via alt text. -->
+            <img src="IMG_5231 2.JPG" alt="Photo de Nour EL HAMIDI" class="hero-photo" />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+              <h2><span class="lang-fr">Formation</span><span class="lang-en">Education</span></h2>
+              <div class="boxes boxes-formation">
+                <!-- Large ENSIMAG box with year boxes nested inside -->
+                <article class="box box-ensimag box-formation">
+                  <h3>ENSIMAG – Grenoble INP <br> 2023–2026</h3>
+<p><span class="lang-fr">Élève ingénieur à l’ENSIMAG, une référence française en informatique et mathématiques appliquées. Spécialisation en modélisation, IA, optimisation et simulation numérique, alliant rigueur scientifique et compétences techniques avancées.</span><span class="lang-en">Engineering student at ENSIMAG (Grenoble INP). Specialization in modeling, AI, optimization and numerical simulation, combining scientific rigor and advanced technical skills.</span></p>
+
+                  <!-- Small year boxes (1A / 2A / 3A) placed inside ENSIMAG principal box -->
+                  <div class="ensimag-years">
+                    <article class="box box-formation-year">
+                      <h4>1A</h4>
+                      <p class="project-summary"><span class="lang-fr">Analyse, Probabilités, Statistiques, Algorithmique, Économie</span><span class="lang-en">Mathematical analysis, probability, statistics, algorithms, economics</span></p>
+                    </article>
+                    <article class="box box-formation-year">
+                      <h4>2A </h4>
+                      <p class="project-summary"><span class="lang-fr">Optimisation Combinatoire, PLNE, Recherche Opérationnelle, Intelligence Artificielle</span><span class="lang-en">Combinatorial optimization, integer linear programming, operations research, artificial intelligence</span></p>
+                    </article>
+                    <article class="box box-formation-year">
+                      <h4>Erasmus UPC</h4>
+                      <p class="project-summary"><span class="lang-fr">Master in Artificial Intelligence : Markov Chain, Constraint Programming, Statistics</span><span class="lang-en">Master in Artificial Intelligence: Markov Chains, constraint programming, statistics</span></p>
+                    </article>
+                  </div>
+                </article>
+
+                <article class="box box-formation">
+                  <h3>CPGE Lycée Clemenceau, Nantes <br> 2021–2023</h3>
+                  <p><span class="lang-fr">MPSI – MP, option Informatique</span><span class="lang-en">MPSI – MP, Computer Science option</span></p>
+                </article>
+              </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section alt">
+        <div class="container">
+          <h2><span class="lang-fr">Stages & Expériences</span><span class="lang-en">Internships & Experience</span></h2>
+          <div class="boxes boxes-experience">
+            <div class="stages-row">
+              <article class="box box-stage">
+                <h3><span class="lang-fr">Approximation de Rang Faible pour Matrices Structurées — GIPSA-Lab (Grenoble)</span><span class="lang-en">Low-Rank Approximation for Structured Matrices — GIPSA-Lab (Grenoble)</span></h3>
+                <p class="muted"><span class="lang-fr">Stage de recherche — Été 2025</span><span class="lang-en">Research internship — Summer 2025</span></p>
+                <p class="project-media"><span class="lang-fr">Python, NumPy, algèbre linéaire numérique.</span><span class="lang-en">Python, NumPy, numerical linear algebra.</span></p>
+                <p class="project-summary"><span class="lang-fr">Développement d'algorithmes exploitant la structure Hankel pour le traitement du signal 1D et application aux séries temporelles multivariées.</span><span class="lang-en">Developed algorithms exploiting Hankel structure for 1D signal processing and applied them to multivariate time series.</span></p>
+              </article>
+              <article class="box box-stage">
+                <h3><span class="lang-fr">Modélisation de l'évolution du trait de côte — LIENSs (La Rochelle)</span><span class="lang-en">Modeling Shoreline Evolution — LIENSs (La Rochelle)</span></h3>
+                <p class="muted"><span class="lang-fr">Stage de recherche — Été 2024</span><span class="lang-en">Research internship — Summer 2024</span></p>
+                <p><span class="lang-fr">Python, simulation Monte Carlo, automates cellulaires.</span><span class="lang-en">Python, Monte Carlo simulation, cellular automata.</span></p>
+                <p class="project-summary"><span class="lang-fr">Simulation de l'évolution côtière et analyse de sensibilité des paramètres.</span><span class="lang-en">Simulated coastline evolution and performed sensitivity analysis of parameters.</span></p>
+              </article>
+            </div>
+            <div class="experiences-row">
+              <article class="box box-experience">
+                <h3><span class="lang-fr">Chargée d'affaires</span><span class="lang-en">Business Officer</span> <br> Nsigma Junior-Entreprise</h3>
+                <p class="muted">2024–2025</p>
+                <p><span class="lang-fr">Gestion de la relation client, prospection et coordination de projets.</span><span class="lang-en">Client relationship management, prospecting and project coordination.</span></p>
+              </article>
+              <article class="box box-experience">
+                <h3><span class="lang-fr">Secrétaire</span><span class="lang-en">Secretary</span> <br> <span class="lang-fr">Bureau Des Sports Ensimag</span><span class="lang-en">Ensimag Sports Office</span></h3>
+                <p class="muted">2024–2025</p>
+                <p><span class="lang-fr">Organisation logistique d'événements sportifs et gestion des partenaires.</span><span class="lang-en">Logistical organization of sports events and partner management.</span></p>
+              </article>
+              <article class="box box-experience">
+                <h3><span class="lang-fr">Cours particuliers</span><span class="lang-en">Private Tutoring</span> <br> <span class="lang-fr">Maths, Physique</span><span class="lang-en">Math, Physics</span></h3>
+                <p class="muted">2022–2025</p>
+                <p><span class="lang-fr">Accompagnement d'élèves pour le baccalauréat et la préparation aux concours.</span><span class="lang-en">Tutoring students for the baccalauréat and preparation for competitive entrance exams.</span></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+            <h2><span class="lang-fr">Projets</span><span class="lang-en">Projects</span></h2>
+            <div class="boxes boxes-projects">
+              <!-- Introduction to Statistical Learning: large box containing 3 small project boxes -->
+              <article class="box box-project box-isl">
+                <div class="project-media isl-bg" data-bg="assets/isl-bg.jpg"></div>
+                <h3><i class="fa-solid fa-graduation-cap" style="margin-right:.5rem"></i><span class="lang-fr">Introduction to Statistical Learning</span><span class="lang-en">Introduction to Statistical Learning</span></h3>
+                
+                <div class="isl-grid">
+                  <article class="box box-subproject">
+                    <h4><span class="lang-fr">Analyse prédictive de données médicales</span><span class="lang-en">Predictive analysis of medical data</span></h4>
+                     <p class="project-summary"><span class="lang-fr">Modélisation du volume tumoral par régression linéaire multiple. One-hot encoding, sélection de variables et validation train/test.</span><span class="lang-en">Modeling tumor volume using multiple linear regression. One-hot encoding, feature selection and train/test validation.</span></p>
+                  </article>
+
+                  <article class="box box-subproject">
+                    <h4><span class="lang-fr">Prédiction d'origine géographique</span><span class="lang-en">Geographic origin prediction</span></h4>
+                    <p class="project-summary"><span class="lang-fr">Prévision d'origine par marqueurs génétiques en haute dimension : PCA et Principal Components Regression (PCR).</span><span class="lang-en">Predicting origin using high-dimensional genetic markers: PCA and Principal Components Regression (PCR).</span></p>
+                  </article>
+
+                  <article class="box box-subproject">
+                    <h4><span class="lang-fr">Benchmark de méthodes de classification</span><span class="lang-en">Benchmark of classification methods</span></h4>
+                    <p class="project-summary"><span class="lang-fr">Comparaison LDA, QDA, régression logistique et Naive Bayes ; application au dataset Titanic avec feature engineering.</span><span class="lang-en">Comparison of LDA, QDA, logistic regression and Naive Bayes; applied to the Titanic dataset with feature engineering.</span></p>
+                  </article>
+                </div>
+                <p class="muted project-tech"> <br> Python, scikit-learn, statsmodels, pandas, numpy, matplotlib, geopandas</p>
+
+              </article>
+
+              <!-- Data Science / ML projects (finance and fraud) -->
+              <article class="box box-project">
+                <h3><i class="fa-solid fa-shield-halved" style="margin-right:.5rem"></i><span class="lang-fr">Détection de Fraudes Bancaires (KNN)</span><span class="lang-en">Bank Fraud Detection (KNN)</span></h3>
+                <p class="project-summary"><span class="lang-fr">Détection des transactions frauduleuses sur 284 807 opérations réelles, Implémentation du modèle K-Nearest Neighbours (KNN) et analyse de performance par AUPRC.</span><span class="lang-en">Detected fraudulent transactions on 284,807 real operations using K-Nearest Neighbors and evaluated performance with AUPRC.</span></p>
+                
+                <p class="muted project-tech">Python, scikit-learn, pandas, numpy, matplotlib</p>
+              </article>
+
+              <article class="box box-project">
+                <h3><i class="fa-solid fa-chart-line" style="margin-right:.5rem"></i><span class="lang-fr">Stock Forecast Project Prédiction du rendement d'actions</span><span class="lang-en">Stock Forecast Project — Predicting stock returns</span></h3>
+                <p class="project-summary"><span class="lang-fr">Analyse financière et prédiction du rendement par modèles d'arbres (Random Forest, LightGBM) d'actions avec indicateurs techniques.</span><span class="lang-en">Financial analysis and return prediction using tree models (Random Forest, LightGBM) with technical indicators.</span></p>
+                <p class="muted project-tech">Python, yfinance, scikit-learn, LightGBM, pandas, numpy</p>
+              </article>
+
+              <!-- Compilateur Deca -->
+              <article class="box box-project">
+                <h3><i class="fa-solid fa-code-branch" style="margin-right:.5rem"></i><span class="lang-fr">Compilateur pour Langage Deca</span><span class="lang-en">Compiler for Deca Language</span> <br> <span class="lang-fr">Projet Génie Logiciel</span><span class="lang-en">Software Engineering Project</span></h3>
+                <p class="project-summary"><span class="lang-fr">Conception d'un compilateur complet : de l'analyse lexicale/syntaxique à la génération de code assembleur.</span><span class="lang-en">Designed a complete compiler: from lexical/syntactic analysis to assembly code generation.</span></p>
+        
+                <p class="muted project-tech">Java, ANTLR, Maven, unit testing</p>
+              </article>
+
+              <!-- Convertisseur d'images -->
+              <article class="box box-project box-convertisseur">
+                <h3><i class="fa-solid fa-image" style="margin-right:.5rem"></i><span class="lang-fr">Convertisseur de Formats d'Images — Projet C</span><span class="lang-en">Image Format Converter — C Project</span></h3>
+                <p class="project-summary"><span class="lang-fr">Convertisseur et manipulateur de formats d'images avec attention forte à la gestion mémoire et la performance.</span><span class="lang-en">Converter and manipulator of image formats with a strong focus on memory management and performance.</span></p>
+                
+                <p class="muted project-tech">C, Makefile, gdb, valgrind</p>
+              </article>
+
+              
+
+              
+
+              <!-- Other existing projects preserved -->
+              
+              <article class="box box-project box-database">
+                <h3><i class="fa-solid fa-database" style="margin-right:.5rem"></i>Database Project</h3>
+                <p class="project-summary"><span class="lang-fr">Base de données relationnelle pour une plateforme d'enchères : modélisation, contraintes et intégration Java.</span><span class="lang-en">Relational database for an auction platform: modeling, constraints and Java integration.</span></p>
+                <p class="muted project-tech">SQL, Java, JDBC</p>
+              </article>
+              <article class="box box-project box-brainfuck">
+                <h3><i class="fa-solid fa-terminal" style="margin-right:.5rem"></i>Brainfuck Interpreter</h3>
+                <p class="project-summary"><span class="lang-fr">Interpréteur Brainfuck implémentant parsing, mémoire et I/O avec design modulaire.</span><span class="lang-en">Brainfuck interpreter implementing parsing, memory and I/O with a modular design.</span></p>
+                <p class="muted project-tech">C, Parsing, Systems</p>
+              </article>
+            </div>
+          </div>
+      </section>
+
+      <section id="skills" class="section alt">
+        <div class="container">
+              <h2><span class="lang-fr">Compétences</span><span class="lang-en">Skills</span></h2>
+              <div class="boxes boxes-skills">
+                <div class="skills-grid">
+                  <div class="skill-section">
+                    <h3><i class="fa-solid fa-code" style="margin-right:.5rem"></i><span class="lang-fr">Langages</span><span class="lang-en">Languages</span></h3>
+                    <div class="skill-items">
+                      <span class="skill-pill">Python</span>
+                      <span class="skill-pill">C</span>
+                      <span class="skill-pill">C++</span>
+                      <span class="skill-pill">Java</span>
+                      <span class="skill-pill">SQL</span>
+                      <span class="skill-pill">OCaml</span>
+                      <span class="skill-pill">R</span>
+                    </div>
+                  </div>
+                  <div class="skill-section">
+                    <h3><i class="fa-solid fa-database" style="margin-right:.5rem"></i><span class="lang-fr">Bibliothèques</span><span class="lang-en">Libraries</span></h3>
+                    <div class="skill-items">
+                      <span class="skill-pill">NumPy</span>
+                      <span class="skill-pill">pandas</span>
+                      <span class="skill-pill">scikit-learn</span>
+                      <span class="skill-pill">statsmodels</span>
+                      <span class="skill-pill">matplotlib</span>
+                      <span class="skill-pill">LightGBM</span>
+                    </div>
+                  </div>
+                  <div class="skill-section">
+                    <h3><i class="fa-solid fa-toolbox" style="margin-right:.5rem"></i><span class="lang-fr">Outils</span><span class="lang-en">Tools</span></h3>
+                    <div class="skill-items">
+                      <span class="skill-pill">Git</span>
+                      <span class="skill-pill">Unix/Shell</span>
+                      <span class="skill-pill">LaTeX</span>
+                      <span class="skill-pill">Pack Office</span>
+                      <span class="skill-pill">VBA</span>
+                      <span class="skill-pill">HTML/CSS</span>
+                      <span class="skill-pill">JavaScript</span>
+                    </div>
+                  </div>
+                  <div class="skill-section">
+                    <h3><i class="fa-solid fa-language" style="margin-right:.5rem"></i><span class="lang-fr">Langues</span><span class="lang-en">Languages</span></h3>
+                    <div class="skill-items small">
+                      <span class="lang-pill"><span class="lang-fr">Français - Courant</span><span class="lang-en">French - Fluent</span></span>
+                      <span class="lang-pill"><span class="lang-fr">Anglais - C1</span><span class="lang-en">English - C1</span></span>
+                      <span class="lang-pill"><span class="lang-fr">Arabe - B1-B2</span><span class="lang-en">Arabic - B1-B2</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <h2><span class="lang-fr">Contact</span><span class="lang-en">Contact</span></h2>
+          <div class="contact-actions" style="margin-top:1.25rem;justify-content:center;">
+            <a class="contact-item contact-linkedin" href="https://www.linkedin.com/in/nour-el-hamidi/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a class="contact-item contact-mail" href="mailto:nour.elhamidi@gmail.com" aria-label="Envoyer un e-mail" title="Envoyer un e-mail">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+            <a class="contact-item contact-cv" href="CV_El-Hamidi_Nour.pdf" download aria-label="Télécharger le CV" title="Télécharger le CV">
+              <i class="fa-solid fa-file-pdf"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Nour EL HAMIDI — Portfolio & CV.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
